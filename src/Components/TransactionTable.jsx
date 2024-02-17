@@ -36,7 +36,7 @@ export default function TransactionTable() {
   const method = "POST";
   const timestamp = Date.now().toString();
   const endpoint = `/api/en/transaction/search`;
-  const URL = `${Base_URL}${endpoint}${`?p=${currentPage}`}`;
+  const URL = `https://corsproxy.io/?${Base_URL}${endpoint}${`?p=${currentPage}`}`;
   const body = JSON.stringify({
     query: `${searchTerm}`,
   });
@@ -92,9 +92,11 @@ export default function TransactionTable() {
         )}
       </div>
 
-      <div className=" absolute bg-gray-50 bottom-0 flex justify-center w-full">
-        <Pagination />
-      </div>
+      {!loading && data && (
+        <div className="absolute bg-gray-50 bottom-0 flex justify-center w-full">
+          <Pagination totalPages={data.lastPage} />
+        </div>
+      )}
     </div>
   );
 }

@@ -29,10 +29,18 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar-container relative">
-      <div className="h-screen w-72 bg-[#7e57c2] lg:block hidden">
+      <div className="h-screen w-60 bg-[#7e57c2] lg:block hidden">
+        <div>
+          <img width={60} src="./Logo.png" alt="" />
+        </div>
         <ul>
           {listData.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li
+              className="bg-[#7e57c2]  border-y-violet-900 text-gray-300 hover:bg-[#614296] text-lg p-2"
+              key={index}
+            >
+              {item}
+            </li>
           ))}
         </ul>
       </div>

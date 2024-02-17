@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-} from "react";
+import { useState, useEffect } from "react";
 import { useSearch } from "../Context/Context";
 
 const Table = ({ tableData }) => {
@@ -69,9 +63,9 @@ const Table = ({ tableData }) => {
 
   return (
     <div className="overflow-auto max-h-[85vh] ">
-      <table className=" table-auto w-full border-none border-gray-300">
+      <table className=" table-auto w-full border border-[#7E57C2] ">
         <thead>
-          <tr className="  bg-[#7E57C2]">
+          <tr className="  bg-[#7E57C2] ">
             <td className="px-4 py-2">TransactionID</td>
             <td className="px-4 py-2  ">
               <input
@@ -118,7 +112,7 @@ const Table = ({ tableData }) => {
               </button>
             </td>
           </tr>
-          <tr className="bg-[#7E57C2] border-b-2">
+          <tr className="bg-[#7E57C2]">
             <th className="px-4 py-2 text-white">ID</th>
             <th className="px-4 py-2 text-white">Sender</th>
             <th className="px-4 py-2 text-white">Receiver</th>
@@ -129,16 +123,18 @@ const Table = ({ tableData }) => {
         </thead>
         <tbody>
           {filteredData?.map((transaction, index) => (
-            <tr key={index} className="hover:bg-gray-200">
+            <tr key={index} className="hover:bg-gray-200  border-y">
               <TooltipCell content={transaction.id} />
-              <td className="px-4 py-2">{transaction.sender.name}</td>
-              <td className="px-4 py-2">{transaction.receiver.name}</td>
-              <td className="px-4 py-2">{transaction.cause}</td>
+              <td className="px-4 py-2 border-x">{transaction.sender.name}</td>
+              <td className="px-4 py-2 border-x">
+                {transaction.receiver.name}
+              </td>
+              <td className="px-4 py-2 border-x">{transaction.cause}</td>
               <td>
                 {new Date(transaction.created_at_time * 1000).toLocaleString()}
               </td>
 
-              <td className="px-4 py-2">
+              <td className="px-4 py-2 border-x">
                 <div
                   className={`
                     ${
@@ -162,7 +158,7 @@ const TooltipCell = ({ content }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <td
-      className="px-4 py-2 relative"
+      className="px-4 py-2 relative border-x"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >

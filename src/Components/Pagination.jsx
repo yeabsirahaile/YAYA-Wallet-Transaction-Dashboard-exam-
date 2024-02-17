@@ -1,17 +1,19 @@
 import { useSearch } from "../Context/Context";
 import { useEffect, useState } from "react";
 
-const Pagination = () => {
+const Pagination = ({ totalPages }) => {
+  // totalpages value will come frome data api lastpage value
+
   const { currentPage, setCurrentPage } = useSearch();
   const [isNarrowViewport, setIsNarrowViewport] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsNarrowViewport(window.innerWidth <= 1024); // Adjust the viewport width threshold as needed
+      setIsNarrowViewport(window.innerWidth <= 1024); // Adjusting the viewport
     };
 
-    handleResize(); // Set initial viewport size
-    window.addEventListener("resize", handleResize); // Listen for viewport changes
+    handleResize(); 
+    window.addEventListener("resize", handleResize); // Listenine to change in viewport
 
     return () => window.removeEventListener("resize", handleResize); // Cleanup
   }, []);
@@ -24,8 +26,6 @@ const Pagination = () => {
     setCurrentPage(currentPage + 1);
   };
 
-  const totalPages = 10;
-
   return (
     <div className="flex lg:items-center lg:justify-center mt-4">
       <button
@@ -37,6 +37,9 @@ const Pagination = () => {
       >
         Previous
       </button>
+
+{/* hide the each page button and displaying previous and next button only as it is responsive */}
+
       {isNarrowViewport ? (
         <div className="mx-1 px-3 py-1 rounded bg-violet-500 text-white">
           {currentPage}
