@@ -81,16 +81,18 @@ export default function TransactionTable() {
   }, [searchTerm, currentPage]);
 
   return (
-    <div className="relative container flex-col ">
+    <div className="relative container p-0 flex-col  ">
       <div className=" ">
         {loading ? (
-          <LoadingSpinner className="  " />
+          <div className="flex justify-center items-center h-screen">
+            <LoadingSpinner className="  " />
+          </div>
         ) : (
           <Table tableData={data} />
         )}
       </div>
 
-      <div className=" absolute bg-slate-600 bottom-0 flex justify-center w-full">
+      <div className=" absolute bg-gray-50 bottom-0 flex justify-center w-full">
         <Pagination />
       </div>
     </div>

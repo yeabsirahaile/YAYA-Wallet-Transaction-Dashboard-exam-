@@ -68,58 +68,63 @@ const Table = ({ tableData }) => {
   };
 
   return (
-    <div className="overflow-x-auto ">
-      <table className=" table-auto w-full border border-gray-300">
+    <div className="overflow-auto max-h-[85vh] ">
+      <table className=" table-auto w-full border-none border-gray-300">
         <thead>
-          <tr className="bg-violet-300">
-            <th className="px-4 py-2">TransactionID</th>
-            <th className="px-4 py-2">
+          <tr className="  bg-[#7E57C2]">
+            <td className="px-4 py-2">TransactionID</td>
+            <td className="px-4 py-2  ">
               <input
-                className="w-full sm:w-auto"
+                className="w-full rounded-sm bg-violet-300 placeholder-violet-500  text-violet-900   "
                 type="text"
                 placeholder="Search by Sender"
                 onKeyPress={(e) => handleKeyPress(e)}
                 onChange={() => handleInputChange("sender")}
               />
-            </th>
-            <th className="px-4 py-2">
+            </td>
+            <td className="px-4 py-2  ">
               <input
-                className="w-full sm:w-auto"
+                className="w-full rounded-sm bg-violet-300 placeholder-violet-500  text-violet-900   "
                 type="text"
                 placeholder="Search by Receiver"
                 onKeyPress={(e) => handleKeyPress(e)}
                 onChange={() => handleInputChange("receiver")}
               />
-            </th>
-            <th className="px-4 py-2">
+            </td>
+            <td className="px-4 py-2  ">
               <input
-                className="w-full sm:w-auto"
+                className="w-full rounded-sm bg-violet-300 placeholder-violet-500  text-violet-900   "
                 type="text"
                 placeholder="Search by Cause"
                 onKeyPress={(e) => handleKeyPress(e)}
                 onChange={() => handleInputChange("cause")}
               />
-            </th>
-            <th className="px-4 py-2">
+            </td>
+            <td className="px-4 py-2">
               <input
-                className="w-full sm:w-auto"
+                className="w-full "
                 type="text"
                 placeholder="Search by Createdat"
                 onKeyPress={(e) => handleKeyPress(e)}
                 onChange={() => handleInputChange("createdat")}
               />
-            </th>
-            <th className="px-4 py-2">
-              <button onClick={handleClearFilter}>Clear Filter</button>
-            </th>
+            </td>
+            <td className="px-4 py-2">
+              <button
+                className="text-slate-600 bg-lime-500 rounded-lg"
+                onClick={handleClearFilter}
+              >
+                Clear Filter
+              </button>
+            </td>
           </tr>
-          <tr className="bg-gray-100">
-            <th className="px-4 py-2">TransactionID</th>
-            <th className="px-4 py-2">Sender</th>
-            <th className="px-4 py-2">Receiver</th>
-            <th className="px-4 py-2">Cause</th>
-            <th className="px-4 py-2">Createdat</th>
-            <th className="px-4 py-2">Amount</th>
+          <tr className="bg-[#7E57C2] border-b-2">
+            <th className="px-4 py-2 text-white">ID</th>
+            <th className="px-4 py-2 text-white">Sender</th>
+            <th className="px-4 py-2 text-white">Receiver</th>
+            <th className="px-4 py-2 text-white">Cause</th>
+            <th className="px-4 py-2 text-white">Createdat</th>
+            <th className="px-4 py-2 text-white">Amount</th>
           </tr>
         </thead>
         <tbody>
@@ -129,7 +134,10 @@ const Table = ({ tableData }) => {
               <td className="px-4 py-2">{transaction.sender.name}</td>
               <td className="px-4 py-2">{transaction.receiver.name}</td>
               <td className="px-4 py-2">{transaction.cause}</td>
-              <td>{transaction.created_at_time}</td>
+              <td>
+                {new Date(transaction.created_at_time * 1000).toLocaleString()}
+              </td>
+
               <td className="px-4 py-2">
                 <div
                   className={`
@@ -162,7 +170,7 @@ const TooltipCell = ({ content }) => {
         {content.length > 10 ? `${content.slice(0, 10)}...` : content}
       </div>
       {isHovered && (
-        <div className="absolute w-80 z-10 bg-white border border-gray-300 p-2 rounded-md shadow-md">
+        <div className="absolute w-80 z-10 bg-violet-200 border border-gray-300 p-2 rounded-md shadow-md">
           {content}
         </div>
       )}
