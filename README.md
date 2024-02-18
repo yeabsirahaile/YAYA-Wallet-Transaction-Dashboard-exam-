@@ -41,7 +41,7 @@ To test the solution, follow these steps:
 
 - **aditional step guide**
 7. Use pagination to navigate transactions.
-8. Search for transactions by sender, receiver, cause, or ID.
+8. Search for transactions by sender, receiver and cause then **hit enter,** also **click clear** filters to clean  
 9. Verify correct visualization of transactions.
 10. Test dashboard responsiveness by resizing the viewport.
 
