@@ -6,6 +6,8 @@ import Pagination from "./Pagination";
 import { useSearch } from "../Context/Context";
 import LoadingSpinner from "./LoadingSpinner";
 
+// this component have the entire right side component including the table and the pagination
+
 function generateYayaApiSign(
   apiSecret,
   timestamp,
@@ -13,14 +15,10 @@ function generateYayaApiSign(
   endpoint,
   body = ""
 ) {
-  const preHashString = `${timestamp}${method.toUpperCase()}${endpoint}${body}`;
 
-  // const shahash = sha256(preHashString);
-  // const hashedString = hmacSHA256(shahash, apiSecret).toString();
-  // const encodedString = btoa(hashedString);
+  const preHashString = `${timestamp}${method.toUpperCase()}${endpoint}${body}`;
   const encodedString = Base64.stringify(hmacSHA256(preHashString, apiSecret));
-  // const encodedString = Buffer.from("your string here").toString("base64");
-  // console.log(preHashString, encodedString);
+
   return encodedString;
 }
 
@@ -40,7 +38,7 @@ export default function TransactionTable() {
   const body = JSON.stringify({
     query: `${searchTerm}`,
   });
-  // Empty for GET requests
+  
 
   const yayaApiSign = generateYayaApiSign(
     apiSecret,
@@ -49,9 +47,7 @@ export default function TransactionTable() {
     endpoint,
     body
   );
-  // const pageNumber = 9;
-  // const endpointWithPagination = `${endpoint}?p=${pageNumber}`;
-  // const endpointWithfilter = `${endpoint}?p=${pageNumber}`;
+  
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -63,7 +59,7 @@ export default function TransactionTable() {
             "YAYA-API-KEY": apikey,
             "YAYA-API-TIMESTAMP": timestamp,
             "YAYA-API-SIGN": yayaApiSign,
-            // ...other headers
+         
           },
           body: body ? body : null,
         });

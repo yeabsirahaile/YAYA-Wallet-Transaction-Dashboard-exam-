@@ -8,6 +8,7 @@ const Table = ({ tableData }) => {
 
   const receiverName = import.meta.env.VITE_LOGGED_IN_USER;
 
+  // identifiying from which input field is the search query coming from.
   useEffect(() => {
     const filterData = () => {
       let updatedData = [...tableData.data];
