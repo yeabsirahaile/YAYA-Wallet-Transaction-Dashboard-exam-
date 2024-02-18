@@ -4,7 +4,7 @@
 
 This repository contains a solution for the Full-stack Engineer - Coding Test provided by YaYa Wallet. The task involves implementing a simple dashboard to display a list of transactions for a given account using React framework for the frontend. 
 
-You can see Preview deployed on Vercel [Click here](https://yaya-wallet-transaction-dashboard.vercel.app/)
+**You can see Preview deployed on** [Vercel Click here](https://yaya-wallet-transaction-dashboard.vercel.app/)
 
 ## ✨Solution Overview
 
@@ -20,16 +20,36 @@ The solution is implemented using React framework for the frontend. It provides 
 - Codebase: The codebase is readable, written in simple JSX without 3rd party libraries, with comments guiding the functionality.
 
 ## How to Test the Solution
+--- 
+There are 2 options to test 
+1. **Using the deployed demo on vercel [ Click here](https://yaya-wallet-transaction-dashboard.vercel.app/) and jump to step 7**
+2. **Or use Local machine installation guide starting from step 1**
+--- 
+To test the solution, follow these steps:
 
-1. Clone this repository to your local machine.
-2. Install the necessary dependencies.
-3. Set up environment variables for API key and secret.
-4. Run the application.
-5. Access the dashboard through the provided URL.
-6. Use pagination to navigate through different pages of transactions.
-7. Use the search functionality to find specific transactions based on sender, receiver, cause, or ID.
-8. Verify that incoming and outgoing transactions are visually indicated correctly.
-9. Test the responsiveness of the dashboard by resizing the viewport.
+
+1. Clone the repository.`https://github.com/yeabsirahaile/YAYA-Wallet-Transaction-Dashboard-exam-.git`.
+2. navigate directory (`cd YAYA-Wallet-Transaction-Dashboard-exam`)
+3. Install dependencies `npm install`.
+4. creating a `.env` file in the root directory and Set up environment variables for API key and secret.
+    - `VITE_LOGGED_IN_USER= Logged in username you can use "Anteneh Gebeyaw" (for test)`
+    - `VITE_Base_URL=https://yayawallet.com`
+    - `VITE_YAYA_API_SECRET=your-api-secret`
+    - `VITE_YAYA_API_KEY=your-api-key`
+
+5. Run the application `npm run dev`.
+6. Access the dashboard in your web browser using the provided URL (e.g., `http://localhost:5173`).
+
+- **aditional step guide**
+7. Use pagination to navigate transactions.
+8. Search for transactions by sender, receiver, cause, or ID.
+9. Verify correct visualization of transactions.
+10. Test dashboard responsiveness by resizing the viewport.
+
+
+
+
+
 
 ## Assumptions Made
 
